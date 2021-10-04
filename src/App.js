@@ -23,7 +23,7 @@ function App() {
     // O, puedo usar el componente Fragment cuando tengo que poner mas de unDIV (BUENA PRACTICA)
     <Fragment>
       <Header />
-      <h1>Turist World - Tienda Online</h1>
+      <h1>Tourist World - Tienda Online</h1>
       {pasajes.map((pasaje) => (
         <Pasaje pasaje={pasaje} />
       ))}

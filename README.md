@@ -1,4 +1,4 @@
-#Tourist World - React Proyect
+# Tourist World - React Proyect
 
 Este proyecto se encuentra actualmente en desarrollo 👷‍♂️
 

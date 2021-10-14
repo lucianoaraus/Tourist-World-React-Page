@@ -2,10 +2,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Pasaje from "./components/Pasaje";
 import { useState, Fragment } from "react";
+import Changuito from "./components/Changuito";
 
 function App() {
   // Listado de pasajes con un state
-
   const [pasajes, guardarPasajes] = useState([
     // pasajes: objetos a los que hago referencia
     // guardarPasajes: funcion para esos productos
@@ -17,6 +17,9 @@ function App() {
     { id: 5, articulo: "Pasaje a Barcelona", precio: 376 },
   ]);
 
+  // state para changuito
+  const [changuito, agregarPasaje] = useState([]); //array vacio porque empieza vacio :P
+
   // Puede haber como MAX 1 tag en lo que retorna la funcion.
   return (
     // Tiene que haber 1 solo DIV en lo que retorna esta funcion
@@ -25,8 +28,15 @@ function App() {
       <Header />
       <h1>Tourist World - Tienda Online</h1>
       {pasajes.map((pasaje) => (
-        <Pasaje pasaje={pasaje} />
+        <Pasaje
+          key={pasaje.id} // para que cada pasaje sea unico
+          pasaje={pasaje}
+          pasajes={pasajes}
+          changuito={changuito}
+          agregarPasaje={agregarPasaje}
+        />
       ))}
+      <Changuito changuito={changuito} />
       <Footer anio={2021} />
     </Fragment>
   );

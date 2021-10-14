@@ -7,16 +7,16 @@ import { Fragment } from "react";
 import "./changuito.css";
 import Pasaje from "./Pasaje";
 
-const Changuito = ({ changuito }) => {
+const Changuito = ({ changuito, agregarPasaje }) => {
   //TODO: implementar logica para que se puedan agregar mas de 1 pasaje con el mismo destino
 
   return (
     <Fragment>
       <div className="changuito">
         <h3>Changuito de compras</h3>
-        {changuito.map((pasaje) => {
-          <Pasaje key={pasaje.id} pasaje={pasaje} />;
-        })}
+        {changuito.map((pasaje) => (
+          <Pasaje key={pasaje.id} pasaje={pasaje} />
+        ))}
       </div>
     </Fragment>
   );

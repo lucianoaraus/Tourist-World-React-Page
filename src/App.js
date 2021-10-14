@@ -36,7 +36,7 @@ function App() {
           agregarPasaje={agregarPasaje}
         />
       ))}
-      <Changuito changuito={changuito} />
+      <Changuito changuito={changuito} agregarPasaje={agregarPasaje} />
       <Footer anio={2021} />
     </Fragment>
   );

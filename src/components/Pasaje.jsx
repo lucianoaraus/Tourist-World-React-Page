@@ -6,24 +6,25 @@ const Pasaje = ({ pasaje, pasajes, changuito, agregarPasaje }) => {
 
   // funcion para agregar pasajes al changuito
   const seleccionarPasaje = (id) => {
-    const pasaje = pasajes.filter((pasaje) => pasaje.id === id)[0];
-    const productosEnElChanguito = changuito.filter((pasaje) => pasaje.id === id)
-    if(productosEnElChanguito != null ){
-      pasaje.cantidad += 1;
+    const pasajeAAgregar = pasajes.filter((pasaje) => pasaje.id === id)[0];
+
+    const pasajesEnElChanguito = changuito.filter(
+      (pasaje) => pasaje.id === id
+    )[0];
+    if (pasajesEnElChanguito != null) {
+      pasajesEnElChanguito.cantidad += 1;
+    } else {
+      agregarPasaje([...changuito, pasaje]); //se indica que no se sobreescriba sino que se agregue al final
     }
-    //Agrego los productos al changuito
-    agregarPasaje(pasajes);)
-    
-    agregarPasaje([...changuito, pasaje]); //se indica que no se sobreescriba sino que se agregue al final
-    console.log(changuito);
+
     //console.log(pasaje);
+    console.log(changuito);
   };
 
   // funcion para quitar pasajes del changuito
   //const eliminarPasaje = (id) => {
-  //  const pasaje = pasajes.remove((pasaje) => pasaje.id === id)[0];
+  //  const pasaje = pasajes.remove((pasaje) => pasaje.id === id)[0];   ->>>>> averiguar como alternativa mas sencilla
   //  console.log(changuito);
-  //  console.log("Quitando pasajes del changuito:", id);
   //};
 
   const eliminarPasaje = (id) => {

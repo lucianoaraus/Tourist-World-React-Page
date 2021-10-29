@@ -6,19 +6,19 @@ import Changuito from "./components/Changuito";
 
 function App() {
   // Listado de pasajes con un state
-  const [pasajes, guardarPasajes] = useState([
+  const [pasajes] = useState([
     // pasajes: objetos a los que hago referencia
     // guardarPasajes: funcion para esos productos
 
-    { id: 1, articulo: "Pasaje a Maldivias", precio: 700 },
-    { id: 2, articulo: "Pasaje a Cataratas", precio: 100 },
-    { id: 3, articulo: "Pasaje a Osaka", precio: 650 },
-    { id: 4, articulo: "Pasaje a Milan", precio: 325 },
-    { id: 5, articulo: "Pasaje a Barcelona", precio: 376 },
+    { id: 1, articulo: "Pasaje a Maldivias", precio: 700, cantidad: 0 },
+    { id: 2, articulo: "Pasaje a Cataratas", precio: 100, cantidad: 0 },
+    { id: 3, articulo: "Pasaje a Osaka", precio: 650, cantidad: 0 },
+    { id: 4, articulo: "Pasaje a Milan", precio: 325, cantidad: 0 },
+    { id: 5, articulo: "Pasaje a Barcelona", precio: 376, cantidad: 0 },
   ]);
 
   // state para changuito
-  const [changuito, agregarPasaje] = useState([]); //array vacio porque empieza vacio :P
+  const [changuito, agregarPasaje, eliminarPasaje] = useState([]); //array vacio porque empieza vacio :P
 
   // Puede haber como MAX 1 tag en lo que retorna la funcion.
   return (
@@ -34,9 +34,14 @@ function App() {
           pasajes={pasajes}
           changuito={changuito}
           agregarPasaje={agregarPasaje}
+          eliminarPasaje={eliminarPasaje}
         />
       ))}
-      <Changuito changuito={changuito} agregarPasaje={agregarPasaje} />
+      <Changuito
+        changuito={changuito}
+        agregarPasaje={agregarPasaje}
+        eliminarPasaje={eliminarPasaje}
+      />
       <Footer anio={2021} />
     </Fragment>
   );

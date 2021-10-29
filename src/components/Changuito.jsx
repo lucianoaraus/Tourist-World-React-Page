@@ -14,8 +14,13 @@ const Changuito = ({ changuito, agregarPasaje }) => {
     <Fragment>
       <div className="changuito">
         <h3>Changuito de compras</h3>
-        {changuito.map((pasaje) => (
-          <Pasaje key={pasaje.id} pasaje={pasaje} />
+        {changuito.map((pasaje, idx) => (
+          <Pasaje
+            key={idx}
+            pasaje={pasaje}
+            changuito={changuito}
+            agregarPasaje={agregarPasaje}
+          />
         ))}
       </div>
     </Fragment>

@@ -2,7 +2,7 @@ import React from "react";
 import { Fragment } from "react/cjs/react.production.min";
 
 const Pasaje = ({ pasaje, pasajes, changuito, agregarPasaje }) => {
-  const { id, articulo, precio, cantidad } = pasaje;
+  const { id, articulo, precio, cantidad, descripcion } = pasaje;
 
   // funcion para agregar pasajes al changuito
   const seleccionarPasaje = (id) => {
@@ -35,22 +35,32 @@ const Pasaje = ({ pasaje, pasajes, changuito, agregarPasaje }) => {
   };
 
   return (
-    <Fragment>
-      <div>
-        <h3>
-          {id} - {articulo} - {precio} - {cantidad}
-        </h3>
-        {pasajes ? (
-          <button type="button" onClick={() => seleccionarPasaje(id)}>
-            Comprar
-          </button>
-        ) : (
-          <button type="button" onClick={() => eliminarPasaje(id)}>
-            Eliminar
-          </button> //sintaxis tip= () => == "para cuando..."
-        )}
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+      <h1 class="display-4 fw-bold">{articulo}</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">{descripcion}</p>
+        <p class="lead mb-4">Precio final {precio}</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          {pasajes ? (
+            <button
+              type="button"
+              class="btn btn-primary btn-lg px-4 me-sm-3"
+              onClick={() => seleccionarPasaje(id)}
+            >
+              Comprar
+            </button>
+          ) : (
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-lg px-4"
+              onClick={() => eliminarPasaje(id)}
+            >
+              Eliminar
+            </button>
+          )}
+        </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 
